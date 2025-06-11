@@ -607,9 +607,11 @@ if not(st.session_state['ut']):
                     my_function(filtered), key='file'
                 )
         if len(filtered) == 0:
-            redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
-            #html = f"""<meta http-equiv="refresh" content="0; url={redirect_url}" /><p>If you are not redirected automatically, <a href="{redirect_url}">click here</a>.</p>"""
-            st.markdown(html, unsafe_allow_html=True)
+		st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
+            	redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
+	    	st.markdown(f"[Click here to continue]({redirect_url})")
+		st.experimental_rerun()  # Only if needed, or use JS for redirect
+             
     except:
         pass
 #st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei in format *docx")
