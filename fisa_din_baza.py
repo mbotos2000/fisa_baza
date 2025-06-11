@@ -505,7 +505,7 @@ departamentele= {
 def load_ftp_file():
     # Establish FTP connection
 
-    ftp_server = ftplib.FTP("users.utcluj.ro", "mbotos","MartaLiisa2001_")
+    ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
     ftp_server.encoding = "utf-8"  # Force UTF-8 encoding
     ftp_server.cwd('./public_html')
 
