@@ -609,7 +609,7 @@ if not(st.session_state['ut']):
                 )
         if len(filtered) == 0:
                 st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
-		st.write("Acceseaza linkul de mai jos pentru a incarca o fisa in format docx")
+                st.write("Acceseaza linkul de mai jos pentru a incarca o fisa in format docx")
                 redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
                 st.markdown(f"[Click here to continue]({redirect_url})")
                 st.experimental_rerun()  # Only if needed, or use JS for redirect
