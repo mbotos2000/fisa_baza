@@ -589,10 +589,10 @@ if not(st.session_state['ut']):
         pass
     try:
         st.session_state['M_1_4']=domeniu[add_selectbox_SP]
-        nume_di = ['']+data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
+        nume_di = data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
         add_selectbox_D = st.selectbox(
                     'Disciplina?',
-                    nume_di,key='M_2_1',
+                    ['']+nume_di,key='M_2_1',
                     help='Toate datele asociate disciplinei vor fi inserate in fisa disciplinei automat din planul de invatamant curent')
     except:
         pass
