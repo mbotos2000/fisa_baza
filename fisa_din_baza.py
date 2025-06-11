@@ -608,10 +608,7 @@ if not(st.session_state['ut']):
                 )
         if len(filtered) == 0:
             redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
-            html = f"""
-                <meta http-equiv="refresh" content="0; url={redirect_url}" />
-                <p>If you are not redirected automatically, <a href="{redirect_url}">click here</a>.</p>
-            """
+            #html = f"""<meta http-equiv="refresh" content="0; url={redirect_url}" /><p>If you are not redirected automatically, <a href="{redirect_url}">click here</a>.</p>"""
             st.markdown(html, unsafe_allow_html=True)
     except:
         pass
