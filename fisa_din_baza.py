@@ -575,6 +575,7 @@ data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
 data1['specializare'] = data1['specializare'].apply(strip_last)
 lista_ci=['Licenta', 'Master']
 lista_ci=my_function(lista_ci)
+st.header("Aplicatie generare fisa disciplinei folosind variante anterioare salvate in baza de date a Facultatii de constructii", divider="gray")
 if not(st.session_state['ut']):
     add_selectbox_C = st.selectbox(
                 'Ciclul de studii?',
@@ -608,6 +609,7 @@ if not(st.session_state['ut']):
                 )
         if len(filtered) == 0:
                 st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
+		st.write("Acceseaza linkul de mai jos pentru a incarca o fisa in format docx")
                 redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
                 st.markdown(f"[Click here to continue]({redirect_url})")
                 st.experimental_rerun()  # Only if needed, or use JS for redirect
