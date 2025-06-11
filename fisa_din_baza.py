@@ -608,9 +608,9 @@ if not(st.session_state['ut']):
                 )
         if len(filtered) == 0:
                 st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
-            	redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
-	    	st.markdown(f"[Click here to continue]({redirect_url})")
-		st.experimental_rerun()  # Only if needed, or use JS for redirect
+                redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
+                st.markdown(f"[Click here to continue]({redirect_url})")
+                st.experimental_rerun()  # Only if needed, or use JS for redirect
              
     except:
         pass
