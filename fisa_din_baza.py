@@ -907,7 +907,7 @@ if not(st.session_state['ut']):
                submitted= st.form_submit_button("finalizeaza")
                if submitted:
                 #schimba_decan(decan[add_select])
-                st.session_state['dir_dep']=directori[st.session_state['M_1_3']]
+                st.session_state['dir_dep']=directori[data_fis['M_1_3']]
                 st.session_state['data_dep']=str(d_dep)
                 #schimba_fac(add_select)
                 st.session_state['data_fac']=str(d_fac)
@@ -915,7 +915,7 @@ if not(st.session_state['ut']):
 
                 del st.session_state["resetare"]
                 del st.session_state["FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii"]
-                #del st.session_state["FormSubmitter:capitolul 4-finalizeaza"]
+                del st.session_state["FormSubmitter:capitolul 4-finalizeaza"]
 
                 if bool(st.session_state['test_curs'])& bool(st.session_state['test_aplicatie']):
                     if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
