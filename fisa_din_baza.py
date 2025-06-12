@@ -905,9 +905,10 @@ if not(st.session_state['ut']):
               d_com=date.today()
               d_dep=st.date_input("Data avizari in departament",date.today())
               d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
-
-              submitted= st.form_submit_button("finalizeaza")
-              if submitted:
+              b=st.button('Finalizeaza')
+              if b:
+              #submitted= st.form_submit_button("finalizeaza")
+              #if submitted:
                 #schimba_decan(decan[add_select])
                 st.session_state['dir_dep']=directori[st.session_state['M_1_3']]
                 st.session_state['data_dep']=str(d_dep)
