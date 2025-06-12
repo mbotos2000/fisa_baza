@@ -843,8 +843,8 @@ if not(st.session_state['ut']):
               schimba_M_3_7_e(slide_37e)
               schimba_M_3_7_f(slide_37f)              
               st.session_state['cap4']='1'            
-              if st.session_state['cap4']!=None:
-                           
+            if st.session_state['cap4']!=None:
+              with st.form('capitolul 4'):             
                st.text_area('4.1 Preconditii din curriculum',value=data_fis['M_4_1'],key='M_4_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
                st.text_area('4.2 Preconditii de competente',value=data_fis['M_4_2'],key='M_4_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
                st.text_area('5.1 Conditii de desfasurare a cursului',value=data_fis['M_5_1'],key='M_5_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")        
@@ -904,10 +904,8 @@ if not(st.session_state['ut']):
                d_com=date.today()
                d_dep=st.date_input("Data avizari in departament",date.today())
                d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
-               b=st.button('Finalizeaza')
-               if b:
-              #submitted= st.form_submit_button("finalizeaza")
-              #if submitted:
+               submitted= st.form_submit_button("finalizeaza")
+               if submitted:
                 #schimba_decan(decan[add_select])
                 st.session_state['dir_dep']=directori[st.session_state['M_1_3']]
                 st.session_state['data_dep']=str(d_dep)
