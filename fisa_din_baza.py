@@ -624,19 +624,19 @@ if not(st.session_state['ut']):
           file_f_path='./public_html/Fise/'+st.session_state['file']
           try:
             data_fis = load_pkl_from_ftp(file_f_path)      
-            """del data_fis["M_1_6"]
-            del data_fis['M_1_5']
-            del data_fis['file']
-            del data_fis['M_2_1']
-            del data_fis['ut']
-            ff=st.session_state['file']
-            for key, value in data_fis.items():
-                    try:
-                        if value==None:
-                            value=''
-                        st.session_state[key] = value
-                    except:
-                       st.session_state[key]=None"""
+            #del data_fis["M_1_6"]
+            #del data_fis['M_1_5']
+            #del data_fis['file']
+            #del data_fis['M_2_1']
+            #del data_fis['ut']
+            #ff=st.session_state['file']
+            #for key, value in data_fis.items():
+             #       try:
+              #          if value==None:
+               #             value=''
+                #        st.session_state[key] = value
+                 #   except:
+                  #     st.session_state[key]=None"""
             st.success(f"Loaded `{ff}` into session_state.")
             
           except Exception as e:
