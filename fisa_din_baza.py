@@ -558,8 +558,8 @@ def load_ftp_file():
         csv_data["baza.csv"],pkl_files
     )
 def load_pkl_from_ftp(file_path):
-    
-        ftp = ftplib.FTP("users.utcluj.ro", "mbotos","MartaLiisa2001_")
+   
+        ftp = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
         ftp.encoding = "utf-8"  # Force UTF-8 encoding
         buffer = BytesIO()
         ftp.retrbinary(f"RETR {file_path}", buffer.write)
