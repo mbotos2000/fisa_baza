@@ -754,7 +754,7 @@ if not(st.session_state['ut']):
                         except:
                             pass
                         st.session_state['cap3']='1'
-                    if st.session_state['cap3']!=None:
+        if st.session_state['cap3']!=None:
             st.write('Distribuția fondului de timp (ore pe semestru)')
             tosi=data1['orestud'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1']) ].values[0]
             slide_37a=0
