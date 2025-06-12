@@ -631,7 +631,6 @@ if not(st.session_state['ut']):
             del data_fis['ut']
             ff=st.session_state['file']
             for key, value in data_fis.items():
-                
                     try:
                         if value==None:
                             value=''
@@ -659,8 +658,7 @@ if not(st.session_state['ut']):
                                                   #placeholder="De exemplu"+find_closest_match(doc_result.body[3][1][1], nume_tit)
                                                  )
           submitted = st.button("Treci la subcapitolul 3.7")
-          if submitted:
-                        
+          if submitted:   
                         data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
                         st.write("A fost selectata disciplina "+st.session_state['M_2_1'])
                         s=''
@@ -905,7 +903,7 @@ if not(st.session_state['ut']):
               #d_com=st.date_input("Data completarii",date.today())
               d_com=date.today()
               d_dep=st.date_input("Data avizari in departament",date.today())
-              d_fac=st.date_input("Data avizari in consiliul facultatii",date(25,6,25))
+              d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
 
               submitted= st.form_submit_button("finalizeaza")
               if submitted:
