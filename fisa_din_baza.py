@@ -646,9 +646,10 @@ if not(st.session_state['ut']):
           nume_tit = data['nume'].tolist()
          
           st.title("Fisa disciplinei")
+	  st.write(data_fis['M_1_3'])
           st.write('{:%d-%b-%Y}'.format(date.today()))
           nume_tit1=nume_tit
-             
+        
           add_selectbox_TC = st.multiselect('Titulari curs?',
                                                   nume_tit, 
                                                   #placeholder="De exemplu"+find_closest_match(doc_result.body[3][2][1], nume_tit),
