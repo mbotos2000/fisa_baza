@@ -1005,4 +1005,4 @@ if not(st.session_state['ut']):
                 ftp_server1.encoding = "utf-8"
                 ftp_server1.cwd('./public_html/Fise/2025')
                 ftp_server1.storbinary(f'STOR {file_name}', docx_buff)
-	        ftp_server1.quit()
+                ftp_server1.quit()
