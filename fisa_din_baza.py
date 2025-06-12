@@ -937,7 +937,8 @@ if not(st.session_state['ut']):
                     else:
                         _,_,_,_,_,_,_,template,_,_=load_ftp_file()
                         st.session_state['M_1_3']=departamentele[data_fis['M_1_3']]
-            
+                st.session_state['M_1_3']=data_fis['M_1_3']
+                st.session_state['M_1_2']=data_fis['M_1_2']
                 document = MailMerge(template)
                 #st.write(document.get_merge_fields())
                 document.merge(da_cu=st.session_state['d_com'])
