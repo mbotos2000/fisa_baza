@@ -646,7 +646,7 @@ if not(st.session_state['ut']):
           nume_tit = data['nume'].tolist()
          
           st.title("Fisa disciplinei")
-          st.write(data_fis['M_1_3'])
+          st.write(data_fis['M_1_2'])
           st.write('{:%d-%b-%Y}'.format(date.today()))
           nume_tit1=nume_tit
         
@@ -927,16 +927,16 @@ if not(st.session_state['ut']):
                 if bool(st.session_state['test_curs'])& (not(bool(st.session_state['test_aplicatie']))):
                     if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                                                _,_,_,_,template,_,_,_,_,_=load_ftp_file()
-                                               st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
+                                               st.session_state['M_1_3']=departamentele[data_fis['M_1_3']]
                     else:
                         _,_,_,_,_,template,_,_,_,_=load_ftp_file()
-                        st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
+                        st.session_state['M_1_3']=departamentele[data_fis['M_1_3']]
                 if (not(bool(st.session_state['test_curs'])))& bool(st.session_state['test_aplicatie']):
                     if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                         _,_,_,_,_,_,template,_,_,_=load_ftp_file()
                     else:
                         _,_,_,_,_,_,_,template,_,_=load_ftp_file()
-                        st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
+                        st.session_state['M_1_3']=departamentele[data_fis['M_1_3']]
             
                 document = MailMerge(template)
                 #st.write(document.get_merge_fields())
