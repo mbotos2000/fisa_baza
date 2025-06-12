@@ -905,7 +905,7 @@ if not(st.session_state['ut']):
               #d_com=st.date_input("Data completarii",date.today())
               d_com=date.today()
               d_dep=st.date_input("Data avizari in departament",date.today())
-              d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
+              d_fac=st.date_input("Data avizari in consiliul facultatii",date(25,6,25))
 
               submitted= st.form_submit_button("finalizeaza")
               if submitted:
