@@ -624,7 +624,7 @@ if not(st.session_state['ut']):
           file_f_path='./public_html/Fise/'+st.session_state['file']
           try:
             data_fis = load_pkl_from_ftp(file_f_path)      
-            del data_fis["M_1_6"]
+            """del data_fis["M_1_6"]
             del data_fis['M_1_5']
             del data_fis['file']
             del data_fis['M_2_1']
@@ -636,7 +636,7 @@ if not(st.session_state['ut']):
                             value=''
                         st.session_state[key] = value
                     except:
-                       st.session_state[key]=None
+                       st.session_state[key]=None"""
             st.success(f"Loaded `{ff}` into session_state.")
             
           except Exception as e:
@@ -754,7 +754,7 @@ if not(st.session_state['ut']):
                         except:
                             pass
                         st.session_state['cap3']='1'
-          if st.session_state['cap3']!=None:
+                    if st.session_state['cap3']!=None:
             st.write('Distribuția fondului de timp (ore pe semestru)')
             tosi=data1['orestud'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1']) ].values[0]
             slide_37a=0
@@ -768,7 +768,7 @@ if not(st.session_state['ut']):
              slide_37a=st.slider(
               '(a) Studiul după manual, suport de curs, bibliografie şi notițe',
               min_value=0, max_value=int(tosi-int(slide_37a)-int(slide_37b)-int(slide_37c)-int(slide_37d)-int(slide_37e)-int(slide_37f)),
-              value=int(st.session_state['M_3_7_a']),
+              value=int(data_fis['M_3_7_a']),
               help='Completati de la a spre f. Suma orelor de studiu individual este blocata pe valoarea din planurile de invatamant')
             except:
              slide_37a=st.slider(
@@ -779,7 +779,7 @@ if not(st.session_state['ut']):
              slide_37b=st.slider(
               '(b) Documentare suplimentară în bibliotecă, pe platforme electronice de specialitate şi pe teren',
               min_value=0, max_value=int(tosi-int(slide_37a)-int(slide_37b)-int(slide_37c)-int(slide_37d)-int(slide_37e)-int(slide_37f)),
-              value=int(st.session_state['M_3_7_b']),
+              value=int(data_fis['M_3_7_b']),
               help='Completati de la a spre f. Suma orelor de studiu individual este blocata pe valoarea din planurile de invatamant')
             except:  
              slide_37b=st.slider(
@@ -790,7 +790,7 @@ if not(st.session_state['ut']):
              slide_37c=st.slider(
               'c) Pregătire seminarii / laboratoare, teme, referate, portofolii şi eseuri',
               min_value=0, max_value=int(tosi-int(slide_37a)-int(slide_37b)-int(slide_37c)-int(slide_37d)-int(slide_37e)-int(slide_37f)),
-              value=int(st.session_state['M_3_7_c']),
+              value=int(data_fis['M_3_7_c']),
               help='Completati de la a spre f. Suma orelor de studiu individual este blocata pe valoarea din planurile de invatamant')
             except:
              slide_37c=st.slider(
@@ -801,7 +801,7 @@ if not(st.session_state['ut']):
              slide_37d=st.slider(
               '(d) Tutoriat',
               min_value=0, max_value=int(tosi-int(slide_37a)-int(slide_37b)-int(slide_37c)-int(slide_37d)-int(slide_37e)-int(slide_37f)),
-              value=int(st.session_state['M_3_7_d']),
+              value=int(data_fis['M_3_7_d']),
               help='Completati de la a spre f. Suma orelor de studiu individual este blocata pe valoarea din planurile de invatamant')
             except:
              slide_37d=st.slider(
@@ -813,7 +813,7 @@ if not(st.session_state['ut']):
              slide_37e=st.slider(
               'e) Examinări',
               min_value=0, max_value=int(tosi-int(slide_37a)-int(slide_37b)-int(slide_37c)-int(slide_37d)-int(slide_37e)-int(slide_37f)),
-              value=int(st.session_state['M_3_7_e']),
+              value=int(data_fis['M_3_7_e']),
               help='Completati de la a spre f. Suma orelor de studiu individual este blocata pe valoarea din planurile de invatamant')
             except:
              slide_37e=st.slider(
@@ -846,61 +846,62 @@ if not(st.session_state['ut']):
                     
           if st.session_state['cap4']!=None:
             with st.form('capitolul 4'):            
-              st.text_area('4.1 Preconditii din curriculum',value=st.session_state['M_4_1'],key='M_4_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('4.2 Preconditii de competente',value=st.session_state['M_4_2'],key='M_4_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('5.1 Conditii de desfasurare a cursului',key='M_5_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")        
-              st.text_area('5.2 Conditii de desfasurare a aplicatiilor',value=st.session_state['M_5_2'],key='M_5_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('6.a Competente profesionale acumulate',value=st.session_state['M_6_cp'],key='M_6_cp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")              
-              st.text_area('6.b Competente transversale',value=st.session_state['M_6_ct'],key='M_6_ct',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")            
-              st.text_area('7.1 Obiectivul general al disciplinei',key='M_7_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('7.2 Obiectivele specifice',key='M_7_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('4.1 Preconditii din curriculum',value=data_fis['M_4_1'],key='M_4_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('4.2 Preconditii de competente',value=data_fis['M_4_2'],key='M_4_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('5.1 Conditii de desfasurare a cursului',value=data_fis['M_5_1'],key='M_5_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")        
+              st.text_area('5.2 Conditii de desfasurare a aplicatiilor',value=data_fis['M_5_2'],key='M_5_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('6.a Competente profesionale acumulate',value=data_fis['M_6_cp'],key='M_6_cp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")              
+              st.text_area('6.b Competente transversale',value=data_fis['M_6_ct'],key='M_6_ct',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")            
+              st.text_area('7.1 Obiectivul general al disciplinei',value=data_fis['M_7_1'],key='M_7_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('7.2 Obiectivele specifice',value=data_fis['M_7_2'],key='M_7_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
             
               if st.session_state['test_curs']:         
-                  st.text_area('Curs 1',key='M_8_1_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
-                  st.text_area('Curs 2',key='M_8_1_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
-                  st.text_area('Curs 3',key='M_8_1_3',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Curs 4',key='M_8_1_4',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Curs 5',key='M_8_1_5',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!") 
-                  st.text_area('Curs 6',key='M_8_1_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Curs 7',key='M_8_1_7',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")              
-                  st.text_area('Curs 8',key='M_8_1_8',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
-                  st.text_area('Curs 9',key='M_8_1_9',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
-                  st.text_area('Curs 10',key='M_8_1_10',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
-                  st.text_area('Curs 11',key='M_8_1_11',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
-                  st.text_area('Curs 12',key='M_8_1_12',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
-                  st.text_area('Curs 13',key='M_8_1_13',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Curs 14',key='M_8_1_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Metode de predare-Curs',key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Observatii-Curs',key='M_8_1_o',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
-                  st.text_area('Biliografie-Curs',key='Biblio_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Curs 1',value=data_fis['M_8_1_1'],key='M_8_1_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
+                  st.text_area('Curs 2',value=data_fis['M_8_1_2'],key='M_8_1_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
+                  st.text_area('Curs 3',value=data_fis['M_8_1_3'],key='M_8_1_3',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Curs 4',value=data_fis['M_8_1_4'],key='M_8_1_4',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Curs 5',value=data_fis['M_8_1_5'],key='M_8_1_5',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!") 
+                  st.text_area('Curs 6',value=data_fis['M_8_1_6'],key='M_8_1_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Curs 7',value=data_fis['M_8_1_7'],key='M_8_1_7',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")              
+                  st.text_area('Curs 8',value=data_fis['M_8_1_8'],key='M_8_1_8',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
+                  st.text_area('Curs 9',value=data_fis['M_8_1_9'],key='M_8_1_9',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
+                  st.text_area('Curs 10',value=data_fis['M_8_1_10'],key='M_8_1_10',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
+                  st.text_area('Curs 11',value=data_fis['M_8_1_11'],key='M_8_1_11',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
+                  st.text_area('Curs 12',value=data_fis['M_8_1_12'],key='M_8_1_12',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                 
+                  st.text_area('Curs 13',value=data_fis['M_8_1_13'],key='M_8_1_13',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Curs 14',value=data_fis['M_8_1_14'],key='M_8_1_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Metode de predare-Curs',value=data_fis['M_8_1_mp'],key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Observatii-Curs',value=data_fis['M_8_1_o'],key='M_8_1_o',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
+                  st.text_area('Biliografie-Curs',value=data_fis['Biblio_c'],key='Biblio_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
               if st.session_state['test_aplicatie']:
-                  st.text_area('Aplicatia 1',key='M_8_2_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 2',key='M_8_2_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 3',key='M_8_2_3',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 4',key='M_8_2_4',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 5',key='M_8_2_5',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 6',key='M_8_2_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 7',key='M_8_2_7',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 8',key='M_8_2_8',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 9',key='M_8_2_9',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 10',key='M_8_2_10',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 11',key='M_8_2_11',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 12',key='M_8_2_12',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")         
-                  st.text_area('Aplicatia 13',key='M_8_2_13',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Aplicatia 14',key='M_8_2_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")         
-                  st.text_area('Metode de predare-aplicatii', key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
-                  st.text_area('Observatii-aplicatii',key='M_8_1_o1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-                  st.text_area('Bibliografie-Aplicatii',key='Biblio_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 1',data_fis['M_8_2_1'],key='M_8_2_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 2',data_fis['M_8_2_2'],key='M_8_2_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 3',data_fis['M_8_2_3'],key='M_8_2_3',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 4',data_fis['M_8_2_4'],key='M_8_2_4',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 5',data_fis['M_8_2_5'],key='M_8_2_5',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 6',data_fis['M_8_2_6'],key='M_8_2_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 7',data_fis['M_8_2_7'],key='M_8_2_7',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 8',data_fis['M_8_2_8'],key='M_8_2_8',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 9',data_fis['M_8_2_9'],key='M_8_2_9',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 10',data_fis['M_8_2_10'],key='M_8_2_10',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 11',data_fis['M_8_2_11'],key='M_8_2_11',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 12',data_fis['M_8_2_12'],key='M_8_2_12',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")         
+                  st.text_area('Aplicatia 13',data_fis['M_8_2_13'],key='M_8_2_13',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Aplicatia 14',data_fis['M_8_2_14'],key='M_8_2_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")         
+                  st.text_area('Metode de predare-aplicatii', data_fis['M_8_1_mp1'],key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")                  
+                  st.text_area('Observatii-aplicatii',data_fis['M_8_1_o1'],key='M_8_1_o1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+                  st.text_area('Bibliografie-Aplicatii',data_fis['Biblio_a'],key='Biblio_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
 
-              st.text_area('9. Coroborarea conținuturilor disciplinei cu așteptările reprezentanţilor comunităţii epistemice, a.p. s.a.m.d. din domeniul aferent programului',key='M_9')
-              st.text_area('10.1 Criterii de evaluare curs',key='M_10_1_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('10.2 Metode de evaluare curs',key='M_10_2_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('10.1.1 Criterii de evaluare aplicatii',key='M_10_1_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('10.2 Metode de evaluare aplicatii',key='M_10_2_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('10.3 Ponderea notei la curs in nota finala',key='M_10_3_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('10.3.1 Ponderea notei la aplicatii in nota finala',key='M_10_3_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-              st.text_area('10.6 Standard minim de performanţă',key='M_10_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('9. Coroborarea conținuturilor disciplinei cu așteptările reprezentanţilor comunităţii epistemice, a.p. s.a.m.d. din domeniul aferent programului',data_fis['M_9'],key='M_9')
+              st.text_area('10.1 Criterii de evaluare curs',data_fis['M_10_1_c'],key='M_10_1_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('10.2 Metode de evaluare curs',data_fis['M_10_2_c'],key='M_10_2_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('10.1.1 Criterii de evaluare aplicatii',data_fis['M_10_1_a'],key='M_10_1_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('10.2 Metode de evaluare aplicatii',data_fis['M_10_2_a'],key='M_10_2_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('10.3 Ponderea notei la curs in nota finala',data_fis['M_10_3_c'],key='M_10_3_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('10.3.1 Ponderea notei la aplicatii in nota finala',data_fis['M_10_3_a'],key='M_10_3_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+              st.text_area('10.6 Standard minim de performanţă',data_fis['M_10_6'],key='M_10_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
               #d_com=st.date_input("Data completarii",date.today())
+
               d_com=date.today()
               d_dep=st.date_input("Data avizari in departament",date.today())
               d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
