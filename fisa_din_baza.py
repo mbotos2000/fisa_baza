@@ -637,7 +637,6 @@ if not(st.session_state['ut']):
                 #        st.session_state[key] = value
                  #   except:
                   #     st.session_state[key]=None"""
-            st.success(f"Loaded `{ff}` into session_state.")
             
           except Exception as e:
             st.error(f"Error loading file: {e}")
@@ -646,7 +645,7 @@ if not(st.session_state['ut']):
           nume_tit = data['nume'].tolist()
          
           st.title("Fisa disciplinei")
-          st.write(data_fis['M_1_2'])
+          
           st.write('{:%d-%b-%Y}'.format(date.today()))
           nume_tit1=nume_tit
         
