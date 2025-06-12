@@ -657,8 +657,8 @@ if not(st.session_state['ut']):
                                                   nume_tit,  
                                                   #placeholder="De exemplu"+find_closest_match(doc_result.body[3][1][1], nume_tit)
                                                  )
-          submitted = st.button("Treci la subcapitolul 3.7")
-          if submitted:   
+          
+          if st.button("Treci la subcapitolul 3.7"):   
                         data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
                         st.write("A fost selectata disciplina "+st.session_state['M_2_1'])
                         s=''
