@@ -842,8 +842,7 @@ if not(st.session_state['ut']):
               schimba_M_3_7_d(slide_37d)
               schimba_M_3_7_e(slide_37e)
               schimba_M_3_7_f(slide_37f)              
-              st.session_state['cap4']='1'
-                    
+              st.session_state['cap4']='1'            
               if st.session_state['cap4']!=None:
                            
                st.text_area('4.1 Preconditii din curriculum',value=data_fis['M_4_1'],key='M_4_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
@@ -918,7 +917,7 @@ if not(st.session_state['ut']):
 
                 del st.session_state["resetare"]
                 del st.session_state["FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii"]
-                del st.session_state["FormSubmitter:capitolul 4-finalizeaza"]
+                #del st.session_state["FormSubmitter:capitolul 4-finalizeaza"]
 
                 if bool(st.session_state['test_curs'])& bool(st.session_state['test_aplicatie']):
                     if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
