@@ -565,8 +565,8 @@ def load_pkl_from_ftp(file_path):
    
         #ftp = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])\
 	ftp = ftplib.FTP_TLS("users.utcluj.ro")
-    	ftp.login(user=st.secrets['u'], passwd=st.secrets['p'])
-    	ftp.prot_p()  # Secure the data connection!
+        ftp.login(user=st.secrets['u'], passwd=st.secrets['p'])
+        ftp.prot_p()  # Secure the data connection!
         ftp.encoding = "utf-8"  # Force UTF-8 encoding
         buffer = BytesIO()
         ftp.retrbinary(f"RETR {file_path}", buffer.write)
