@@ -564,18 +564,17 @@ def load_ftp_file():
 def load_pkl_from_ftp(file_path):
    
         #ftp = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
-    	ftp = ftplib.FTP_TLS("users.utcluj.ro")
-    	ftp.login(user=st.secrets['u'], passwd=st.secrets['p'])
-        ftp.prot_p()  # Secure the data connection!
-        ftp.encoding = "utf-8"  # Force UTF-8 encoding
-        buffer = BytesIO()
-        ftp.retrbinary(f"RETR {file_path}", buffer.write)
-        buffer.seek(0)
-        data = pickle.load(buffer)
-        if not isinstance(data, dict):
-            data = {"data": data}
-
-        return data          
+ ftp = ftplib.FTP_TLS("users.utcluj.ro")
+ ftp.login(user=st.secrets['u'], passwd=st.secrets['p'])
+ ftp.prot_p() 
+ ftp.encoding = "utf-8"  # Force UTF-8 encoding
+ buffer = BytesIO()
+ ftp.retrbinary(f"RETR {file_path}", buffer.write)
+ buffer.seek(0)
+ data = pickle.load(buffer)
+ if not isinstance(data, dict):
+  data = {"data": data}
+ return data          
 data,data1,_,_,_,_,_,_,data2,Lista_fisiere=load_ftp_file()
 
 data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
