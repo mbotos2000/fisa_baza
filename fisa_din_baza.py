@@ -437,7 +437,8 @@ domeniu={'Amenajari si constructii hidrotehnice - (ACH)':'Inginerie civila'
             ,'Inginerie geotehnica (IG)':'Inginerie civila'
             ,'Inginerie structurala (IS)':'Inginerie civila'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)':'Inginerie civila'
-            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'Inginerie si management'}
+            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'Inginerie si management'
+            ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)':'Inginerie civila'}
 pres={'Amenajari si constructii hidrotehnice - (ACH)':'ACH'
              ,'Cai Ferate, Drumuri si Poduri-(CFDP)':'CFDP'
              ,'Constructii civile, industriale si agricole (CCIA-eng)':'CCIA-eng'
@@ -454,7 +455,9 @@ pres={'Amenajari si constructii hidrotehnice - (ACH)':'ACH'
             ,'Inginerie geotehnica (IG)':'IG'
             ,'Inginerie structurala (IS)':'IS'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)':'PASLM'
-            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'MPEP'}
+            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'MPEP'
+            ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)':'AICIV'
+     }
 specializari= {
   '':[],
   'Licenta':['',
@@ -475,7 +478,8 @@ specializari= {
             ,'Inginerie geotehnica (IG)'
             ,'Inginerie structurala (IS)'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)'
-            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)'
+            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)',
+	    'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)'
             ]
  }
 directori = {
