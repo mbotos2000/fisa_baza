@@ -631,12 +631,12 @@ if not(st.session_state['ut']):
     
     if st.session_state['file']!=None or st.session_state['ut']:
         if st.session_state['file']!=None:
-          file_f_path='./public_html/Fise/'+st.session_state['file']
           try:
-            data_fis = load_pkl_from_ftp(file_f_path)      
-
-          except Exception as e:
-            st.error(f"Error loading file: {e}")
+            data_fis = load_pkl_from_ftp('./public_html/Fise/2025/'+st.session_state['file'])      
+	  except:
+	    data_fis = load_pkl_from_ftp('./public_html/Fise/2024/'+st.session_state['file'])   
+          #except Exception as e:
+          #  st.error(f"Error loading file: {e}")
 
         
           nume_tit = data['nume'].tolist()
