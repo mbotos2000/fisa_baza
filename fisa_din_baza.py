@@ -580,7 +580,7 @@ def load_pkl_from_ftp(file_path):
  if not isinstance(data, dict):
   data = {"data": data}
  return data  
-if st.button("🔄 Refresh FTP Data"):
+if st.button("🔄 Refresh FTP Data (apasa doar daca nu s-a actualizat baza de date!!!)"):
     st.session_state.refresh_data = True
 if st.session_state.refresh_data:
     load_ftp_file.clear()  # Clear the cache
