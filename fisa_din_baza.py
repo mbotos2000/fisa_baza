@@ -505,7 +505,7 @@ departamentele= {
   'Matematica':'Mathematics',
   'Fizica':'Physics',
   'Limbi straine':'Languages'}
-#@st.cache_resource 
+@st.cache_resource 
 def load_ftp_file():
     # Establish FTP connection
 
