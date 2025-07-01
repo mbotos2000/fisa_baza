@@ -366,7 +366,8 @@ def parcurge(aa,bb,cc,dd):
                     output+=doc_result.body[aa][bb][cc][i]+'\n'
     return output[:len(output)-1]
 st.set_page_config(page_title="Fisa disciplinei",layout="wide", initial_sidebar_state="auto")
-
+if "refresh_data" not in st.session_state:
+    st.session_state.refresh_data = False
 if 'FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii' not in st.session_state:
     st.session_state["FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii"]=''
 if 'M_1_7' not in st.session_state:
@@ -578,7 +579,12 @@ def load_pkl_from_ftp(file_path):
  data = pickle.load(buffer)
  if not isinstance(data, dict):
   data = {"data": data}
- return data          
+ return data  
+if st.button("🔄 Refresh FTP Data"):
+    st.session_state.refresh_data = True
+if st.session_state.refresh_data:
+    load_ftp_file.clear()  # Clear the cache
+    st.session_state.refresh_data = False
 data,data1,_,_,_,_,_,_,data2,Lista_fisiere=load_ftp_file()
 
 data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
