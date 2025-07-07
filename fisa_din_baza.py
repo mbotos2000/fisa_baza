@@ -485,7 +485,7 @@ specializari= {
  }
 directori = {
   'Mecanica constructiilor':'conf.dr.ing. Anca-Gabriela POPA',
-  'Constructii civile si management':'conf.dr.ing. Caludiu ACIU',
+  'Constructii civile si management':'conf.dr.ing. Claudiu ACIU',
   'Structuri':'conf.dr.ing. Attila Puskas',
   'Masuratori terestre':'conf.dr.ing. Sanda NAS',
   'Cai ferate, drumuri si poduri':'conf.dr.ing. Mihai Liviu DRAGOMIR',
@@ -493,7 +493,7 @@ directori = {
   'Fizica':'prof. dr. Petru Pascuta',
   'Limbi straine':'conf.dr. Ruxanda Literat'}
 decan= {
-  'Constructii':'prof.dr.ing Daniela MANEA',
+  'Constructii':'prof.dr.ing Daniela Lucia Manea',
   'Mecanica':'',
   'Arhitectura':''
   }
